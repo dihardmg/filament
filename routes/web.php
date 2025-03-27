@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TwoFactorController;
 
 /*************  ✨ Codeium Command 🌟  *************/
 Route::get('/', function () {
@@ -11,3 +12,11 @@ Route::get('/', function () {
 Route::get('/', function () {
     return redirect('/admin/login');
 });
+
+// web.php
+Route::get('/2fa/verify', [TwoFactorController::class, 'showVerifyForm'])->name('2fa.verify');
+Route::post('/2fa/verify', [TwoFactorController::class, 'verify']);
+
+
+
+
